@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopping Mall Management System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <svg class="mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect x="2" y="16" width="36" height="22" rx="1.5" stroke="currentColor" stroke-width="2"/>
+      <path d="M6 16V9a3 3 0 0 1 3-3h22a3 3 0 0 1 3 3v7" stroke="currentColor" stroke-width="2"/>
+      <path d="M14 38V26h12v12" stroke="currentColor" stroke-width="2"/>
+      <path d="M2 16h36" stroke="currentColor" stroke-width="2"/>
+    </svg>
+    <div>
+      <h1>Shopping Mall Management</h1>
+      <p>Tenant &amp; lease directory</p>
+    </div>
+  </header>
+
+  <main class="layout">
+
+    <section class="panel form-panel" aria-labelledby="form-heading">
+      <h2 id="form-heading">Shop record</h2>
+      <p class="panel-hint">Add a new tenant, or enter a shop ID and search to load and update its details.</p>
+
+      <form onsubmit="return false;">
+        <div class="field">
+          <label for="shopId">Shop ID</label>
+          <input type="number" id="shopId" placeholder="e.g. 104">
+        </div>
+
+        <div class="field">
+          <label for="shopName">Shop name</label>
+          <input type="text" id="shopName" placeholder="e.g. Northwind Coffee">
+        </div>
+
+        <div class="field">
+          <label for="shopCategory">Category</label>
+          <input type="text" id="shopCategory" placeholder="e.g. Cafe, Apparel, Electronics">
+        </div>
+
+        <div class="field">
+          <label for="customers">Customers this month</label>
+          <input type="text" id="customers" placeholder="e.g. 1200">
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="shopStatus">Shop status</label>
+            <input type="text" id="shopStatus" placeholder="OPEN or CLOSED">
+          </div>
+          <div class="field">
+            <label for="leaseStatus">Lease status</label>
+            <input type="text" id="leaseStatus" placeholder="ACTIVE or EXPIRED">
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="button" class="btn primary" id="addBtn" onclick="addShop()">Add shop</button>
+          <button type="button" class="btn" id="searchBtn" onclick="searchShop()">Search</button>
+          <button type="button" class="btn" id="updateBtn" onclick="updateShop()">Update</button>
+          <button type="button" class="btn danger" id="deleteBtn" onclick="deleteShop()">Delete</button>
+        </div>
+      </form>
+
+      <div id="result" class="result" role="status" aria-live="polite"></div>
+    </section>
+
+    <aside class="panel preview-panel" aria-labelledby="preview-heading">
+      <h2 id="preview-heading">Directory plaque</h2>
+      <div class="plaque" id="plaque">
+        <span class="plaque-id" id="previewId">No ID set</span>
+        <h3 class="plaque-name" id="previewName">Unnamed shop</h3>
+        <p class="plaque-category" id="previewCategory">Category not set</p>
+        <dl class="plaque-meta">
+          <div>
+            <dt>Customers</dt>
+            <dd id="previewCustomers">&mdash;</dd>
+          </div>
+        </dl>
+        <div class="pills">
+          <span class="pill" id="previewStatus">Status unknown</span>
+          <span class="pill" id="previewLease">Lease unknown</span>
+        </div>
+      </div>
+    </aside>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
